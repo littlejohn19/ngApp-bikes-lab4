@@ -1,0 +1,28 @@
+<div class="container">
+  <ul class="list-group">
+    <li *ngFor="let bike of bikes" class="list-group-item bike">
+      <div class="bike-item">
+        <img src="{{ bike.image }}">
+        <div class="desc">
+          <h1>{{ bike.name | uppercase}}</h1>
+          <p>{{ bike.description | summary:200}}</p>
+          <button [routerLink]="['/bike', bike.id]" class="btn btn-primary more">Więcej</button>
+        </div>
+        <div class="general-info">
+          <div class="info">
+            <span *ngIf="bike.amount === 0">Brak!</span>
+            <span *ngIf="bike.amount > 0">Zamów!</span>
+            <span [ngClass]="{
+            red: bike.amount < 10,
+            green: bike.amount > 10
+            }"
+            >
+            Ilość:  {{ bike.amount }}</span>
+            <span>{{ bike.price | currency:'USD':3.1-1}}</span>
+          </div>
+          <order [bike]="bike"></order>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

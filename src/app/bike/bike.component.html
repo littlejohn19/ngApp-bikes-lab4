@@ -1,0 +1,12 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1>{{ bike.name | uppercase }}</h1>
+    <div class="desc">
+      <img src="{{ bike.image }}">
+      <p>{{ bike.description }}</p>
+    </div>
+    <span>Cena {{ bike.price | currency:'USD':3.1-1}}</span>
+    <span>Ilość:  {{ bike.amount }}</span>
+    <order [bike]="bike"></order>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="order">
+  <button *ngIf="0 !== item.order" (click)="remove(item.id)" class="btn btn-danger glyphicon glyphicon-minus cart"></button>
+  <span>
+            {{ item.order }}</span>
+  <span *ngIf="item.amount !== item.order" (click)="add(item.id)" class="btn btn-success glyphicon glyphicon-plus cart"></span>
+  <button *ngIf="item.order > 0" (click)="clear(item.id)" class="btn btn-primary">Dodaj</button>
+</div>
